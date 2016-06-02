@@ -1,61 +1,79 @@
 $(document).ready(function(){
 
-
-var counter =30; // goees here so when the page is reloaded the timer starts over
-// clicking the button
-
-$('#startButton').on('click', function(){
-var self =this;
-// this copies the id above 
-$(this).addClass('btn-danger');  // change the color of button to red once clicked.
-	this.disabled=true; 
-	var intervalId = setInterval(function(){
-		// code that refreshes the number every second
-		
-		counter--;// reduce the number of seconds left by 1
-		//show the counter
-		$(self).html('Time Remaining: ' + counter) // displays the the time remaining and the counter
-		if (counter===0){
-			alert("Your time is up!")// when the counter hits 0
-			clearInterval(intervalId); // restarts the timer
-
-			window.reload(); // refreshes the page after game ends
-
-		}
-	}, 1000);
 var questionSet =[
 	{
-		question: "From what source does solar generate electricity?",
-		answerChoices:["The Sun!", "The Ocean!", "Volcanoes!", "Earth's Crust!"],
+	"questions" :  [
+	{
+		question1: "From what source, does solar generate electricity?",
+		answerChoices1:["The Sun!","The Ocean!", "Volcanoes!", "Earth's Crust!"],
 		correctAnswer:0
 	},
-	// store new questions in an object
 	{
-		question: "What year was the first Apple I-phone introduced?",
-		answerChoices:['2005', '2006', '2007', '2008'],
+		question2: "What year was the first Apple I-phone introduced?",
+		answerChoices2:['2005', '2006', '2007', '2008'],
 		correctAnswer:2
 	},
 	{
-		question: "In terms of computing, what does CPU stand for?",
-		answerChoices:['Computers Powering Us!', 'Computers Powering United!', 'Correct Power Unit!', 'Central Proccessing Unit!'],
+		question3: "In terms of computing, what does CPU stand for?",
+		answerChoices3:['Computers Powering Us!', 'Computers Powering United!', 'Correct Power Unit!', 'Central Proccessing Unit!'],
 		correctAnswer:3
 	},
-	{	question: "The Hubble Space Telescope is named after which American astronomer?",
-		answerChoices:['Edwin Hubble!', 'Albert Einstein!', 'Carl Saggan!', 'Frank drake!'],
+	{	question4: "The Hubble Space Telescope is named after which American astronomer?",
+		answerChoices4:['Edwin Hubble!', 'Albert Einstein!', 'Carl Saggan!', 'Frank drake!'],
 		correctAnswer:0
 	},
-{		question: "Firefox, Opera, Chrome, Safari and Explorer are types of what?",
-		answerChoices:['Computers!', 'Programming Languages!', 'Operating Systems!', 'Web Browsers!'],
+	{		question5: "Firefox, Opera, Chrome, Safari and Explorer are types of what?",
+		answerChoices5:['Computers!', 'Programming Languages!', 'Operating Systems!', 'Web Browsers!'],
 		correctAnswer:3
 
-},
-{		question: "What is the Earth’s primary source of energy?",
-		answerChoices:['The Sun!', 'The Ocean!', 'I Dont Know!', 'The Moon!'],
+	},
+	{		question6: "What is the Earth’s primary source of energy?",
+		answerChoices6:['The Sun!', 'The Ocean!', 'I Dont Know!', 'The Moon!'],
 		correctAnswer:0
-
+	}
+	]
 }
+					];
 
-];
+
+// Question 1 
+$('#startButton').on('click', function(){
+$('#startButton').remove(); // removes the button after it is clicked
+$('#content').html('Time Remaining:'); // after button is removed it displays this content
+$('#content').append('<br>' + questionSet[0].questions[0].question1);
+$('#content').append('<br><button id="correctAnswer">' + questionSet[0].questions[0].answerChoices1[0]);
+$('#content').append('<br><button class="wrongAnswer">' + questionSet[0].questions[0].answerChoices1[1]);
+$('#content').append('<br><button class="wrongAnswer">'  + questionSet[0].questions[0].answerChoices1[2]);
+$('#content').append('<br><button class="wrongAnswer">'  + questionSet[0].questions[0].answerChoices1[3]);
+
+$('.wrongAnswer').on('click',function(){ // if wrong answer is clicked 
+$('#content').html( 'Sorry, thats wrong! <br>' + 'The correct answer is the sun! <br>')
+$('#content').append('<img src= "http://rs802.pbsrc.com/albums/yy310/wld011/animated%20icons/sol09_small.gif~c200">')
+});
+
+$('#correctAnswer').on('click',function(){ // when correct answer is clicked
+$('#content').html( 'Yes! <br>' + 'The correct answer is the sun! <br>')
+$('#content').append('<img src= "http://rs802.pbsrc.com/albums/yy310/wld011/animated%20icons/sol09_small.gif~c200">')
+});
+
+// question 2
+$('#startButton').on('click', function(){
+$('#startButton').remove(); // removes the button after it is clicked
+$('#content').html('Time Remaining:'); // after button is removed it displays this content
+$('#content').append('<br>' + questionSet[1].questions[0].question1);
+$('#content').append('<br><button id="correctAnswer">' + questionSet[0].questions[0].answerChoices1[0]);
+$('#content').append('<br><button class="wrongAnswer">' + questionSet[0].questions[0].answerChoices1[1]);
+$('#content').append('<br><button class="wrongAnswer">'  + questionSet[0].questions[0].answerChoices1[2]);
+$('#content').append('<br><button class="wrongAnswer">'  + questionSet[0].questions[0].answerChoices1[3]);
+
+$('.wrongAnswer').on('click',function(){ // if wrong answer is clicked 
+$('#content').html( 'Sorry, thats wrong! <br>' + 'The correct answer is the sun! <br>')
+$('#content').append('<img src= "http://rs802.pbsrc.com/albums/yy310/wld011/animated%20icons/sol09_small.gif~c200">')
+});
+
+$('#correctAnswer').on('click',function(){ // when correct answer is clicked
+$('#content').html( 'Yes! <br>' + 'The correct answer is the sun! <br>')
+$('#content').append('<img src= "http://rs802.pbsrc.com/albums/yy310/wld011/animated%20icons/sol09_small.gif~c200">')
 
 });
 
@@ -65,181 +83,4 @@ var questionSet =[
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
 
